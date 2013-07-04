@@ -1,0 +1,23 @@
+<h2>Login or Signup Below</h2>
+
+<% if @user.errors %>
+  <% @user.errors.full_messages.each do |message| %>
+    <ul class="error">
+    <li><%= message %></li>
+    </ul>
+  <%end %>
+<% end %>
+
+<form id="signup" action="/users" method="POST">
+  <input type="text" name="username" placeholder="your username here"><br>
+  <input type="text" name="email" placeholder="your email here"><br>
+  <input type="password" name="password" placeholder="your password here"><br>
+  <input type="submit" value="sign up">
+</form>
+
+<form id="login" action="/sessions" method="POST">
+  <input type="text" name="username" placeholder="your username here"><br>
+  <input type="password" name="password" placeholder="your password here"><br>
+  <input type="submit" value="login">
+</form>
+

@@ -1,3 +1,8 @@
-<div class="container">
-
-</div>
+<% Post.all.each do |post| %>
+  <ul>
+    <li><a href="<%= post.url %>"><%= post.title %></a></li>
+      <ul>
+        <li><a href="/posts/<%= post.id %>">comments</a></li>
+      </ul>
+  </ul>
+<% end %>

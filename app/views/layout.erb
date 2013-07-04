@@ -18,9 +18,19 @@
   <title></title>
 </head>
 <body>
-  <<nav>
-    <h1><a>Hacker News</a></h1>
-
+  <nav>
+    <h1><a href="/">Hacker News</a></h1>
+    <ul>
+      <li><a href="/users/<%= session[:id] %>">Profile</a></li>
+      <li><%= session[:id] %></li>
+      <li><a href="/posts/new">New Post</a></li>
+      <li><a href="/login">Login/Signup</a></li>
+      <% if session[:id] %>
+        <li><a href="/sessions/<%= session[:id] %>">Logout</a></li>
+      <% else %>
+        <li><a href="/login">Logout</a></li>
+      <% end %>
+    </ul>
   </nav>
 
   <%= yield %>
